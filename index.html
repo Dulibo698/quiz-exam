@@ -2,66 +2,73 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
 <title>化妆师考试</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,sans-serif;background:#FFF5F8;max-width:480px;margin:0 auto;min-height:100vh;padding:20px}
-.screen{display:none}.screen.on{display:block}
-.c{text-align:center;padding-top:40px}
-.big{font-size:64px}
-.h{font-size:24px;font-weight:700;color:#E91E63;margin:10px 0}
+html,body{height:100%;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,sans-serif;background:#FFF5F8;max-width:480px;margin:0 auto;min-height:100vh;padding:20px;-webkit-overflow-scrolling:touch}
+.screen{display:none;min-height:calc(100vh - 40px)}.screen.on{display:block}
+.c{text-align:center;padding-top:30px}
+.big{font-size:72px}
+.h{font-size:26px;font-weight:700;color:#E91E63;margin:12px 0}
 .cfg{background:#fff;border-radius:12px;padding:16px;margin:20px 0}
-.cfgrow{display:flex;align-items:center;margin:8px 0}
-.lb{width:60px;font-size:14px}
-.in{width:50px;padding:6px;border:1px solid #ddd;border-radius:6px;text-align:center}
-.btn{padding:14px;border-radius:25px;background:linear-gradient(135deg,#FF6B9D,#E91E63);color:#fff;border:none;font-size:16px;font-weight:600;cursor:pointer;width:100%;margin-top:8px}
-.ph{padding:10px 0;border-bottom:1px solid #eee;margin-bottom:12px}
-.pt{font-size:14px;font-weight:600;color:#E91E63}
-.prog{height:4px;background:#eee;border-radius:2px;margin-top:6px}
-.progb{height:4px;background:#E91E63;border-radius:2px}
-.qc{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px}
-.qt{font-size:15px;line-height:1.6;margin-bottom:12px}
-.qtype{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;margin-bottom:10px}
+.cfgrow{display:flex;align-items:center;margin:10px 0}
+.lb{width:70px;font-size:15px;font-weight:500}
+.in{width:55px;padding:8px;border:1px solid #ddd;border-radius:8px;text-align:center;font-size:15px;color:#E91E63;font-weight:600}
+.btn{padding:16px;border-radius:30px;background:linear-gradient(135deg,#FF6B9D,#E91E63);color:#fff;border:none;font-size:17px;font-weight:600;cursor:pointer;width:100%;margin-top:12px;-webkit-tap-highlight-color:transparent}
+.ph{padding:12px 0;border-bottom:1px solid #eee;margin-bottom:12px}
+.pt{font-size:15px;font-weight:600;color:#E91E63}
+.prog{height:5px;background:#eee;border-radius:3px;margin-top:8px}
+.progb{height:5px;background:#E91E63;border-radius:3px;transition:width 0.3s}
+.qc{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,0.05)}
+.qt{font-size:16px;line-height:1.7;margin-bottom:14px}
+.qtype{display:inline-block;padding:4px 12px;border-radius:14px;font-size:13px;margin-bottom:12px}
 .qtype.single{background:#E3F2FD;color:#1976D2}
 .qtype.multi{background:#FFF3E0;color:#E65100}
 .qtype.judge{background:#F3E5F5;color:#7B1FA2}
-.opt{padding:12px;background:#fff;border:1.5px solid #eee;border-radius:8px;margin:8px 0;font-size:14px;cursor:pointer}
-.opt:hover{border-color:#FF6B9D}
+.opt{padding:14px;background:#fff;border:2px solid #eee;border-radius:10px;margin:10px 0;font-size:15px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.opt:active{background:#f5f5f5}
 .opt.sel{border-color:#E91E63;background:#FFF0F5;font-weight:600}
 .opt.sel::before{content:"✓ ";color:#E91E63}
-.fb{display:flex;gap:8px;margin-top:12px}
-.nb{padding:10px 16px;border-radius:20px;font-size:14px;font-weight:600;border:none;cursor:pointer;flex:1}
-.bp{background:#fff;color:#E91E63;border:1px solid #E91E63}
+.fb{display:flex;gap:10px;margin-top:14px}
+.nb{padding:12px 20px;border-radius:25px;font-size:15px;font-weight:600;border:none;cursor:pointer;flex:1;-webkit-tap-highlight-color:transparent}
+.bp{background:#fff;color:#E91E63;border:2px solid #E91E63}
 .bn{background:#E91E63;color:#fff}
-.rs{text-align:center;padding-top:60px}
-.ri{font-size:64px}
-.rt{font-size:20px;font-weight:700;color:#E91E63;margin:10px 0 20px}
-.rg{display:flex;gap:10px;justify-content:center;margin-bottom:20px}
-.rd{background:#fff;border-radius:10px;padding:12px 20px;text-align:center}
-.rn{font-size:20px;font-weight:700}
-.rl{font-size:11px;color:#888}
-.rb{padding:12px;border-radius:25px;font-size:14px;font-weight:600;border:none;cursor:pointer;width:80%;max-width:200px;margin:6px auto;display:block}
+.rs{text-align:center;padding-top:50px}
+.ri{font-size:72px}
+.rt{font-size:22px;font-weight:700;color:#E91E63;margin:12px 0 24px}
+.rg{display:flex;gap:12px;justify-content:center;margin-bottom:24px}
+.rd{background:#fff;border-radius:12px;padding:14px 24px;text-align:center}
+.rn{font-size:22px;font-weight:700}
+.rl{font-size:12px;color:#888;margin-top:4px}
+.rb{padding:14px;border-radius:30px;font-size:15px;font-weight:600;border:none;cursor:pointer;width:85%;max-width:220px;margin:8px auto;display:block;-webkit-tap-highlight-color:transparent}
 .br1{background:linear-gradient(135deg,#FF6B9D,#E91E63);color:#fff}
-.br2{background:#fff;color:#E91E63;border:1px solid #E91E63}
-.rv{padding:10px 0;border-bottom:1px solid #eee;margin-bottom:12px;display:flex;align-items:center}
-.backBtn{background:none;border:none;color:#E91E63;font-size:14px;cursor:pointer}
-.rvt{margin-left:10px;font-size:15px;font-weight:600}
-.ri2{background:#fff;border-radius:10px;padding:14px;margin:10px 0;border-left:4px solid #ddd}
+.br2{background:#fff;color:#E91E63;border:2px solid #E91E63}
+.rv{padding:12px 0;border-bottom:1px solid #eee;margin-bottom:14px;display:flex;align-items:center}
+.backBtn{background:none;border:none;color:#E91E63;font-size:15px;cursor:pointer;padding:8px}
+.rvt{margin-left:12px;font-size:16px;font-weight:600}
+.ri2{background:#fff;border-radius:12px;padding:16px;margin:12px 0;border-left:4px solid #ddd;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
 .ri2w{border-left-color:#F44336}
 .ri2r{border-left-color:#4CAF50}
-.rim{font-size:14px;line-height:1.6;margin-bottom:8px}
-.rab{background:#f5f5f5;border-radius:6px;padding:6px 10px;font-size:12px;margin:4px 0}
+.rim{font-size:15px;line-height:1.6;margin-bottom:10px}
+.rab{background:#f8f8f8;border-radius:8px;padding:8px 12px;font-size:13px;margin:6px 0}
 .rabw{color:#F44336}
 .rabr{color:#4CAF50}
-.hint{font-size:12px;color:#888;margin-top:6px;text-align:center}
-.log{position:fixed;top:0;left:0;background:#000;color:#0f0;padding:8px;font-size:12px;width:100%;max-width:480px}
+.hint{font-size:13px;color:#888;margin-top:8px;text-align:center}
+.log{position:fixed;top:0;left:0;right:0;background:#000;color:#0f0;padding:8px 12px;font-size:12px;font-family:monospace;z-index:99999;max-width:480px;margin:0 auto}
+.tips{background:#FFF3E0;border-radius:8px;padding:12px;margin:10px 0;font-size:13px;color:#E65100;text-align:center}
 </style>
 </head>
 <body>
-<div class="log" id="log">加载...</div>
+<div class="log" id="log">加载中...</div>
 <div class="screen on" id="sScreen">
 <div class="c"><div class="big">📝</div><div class="h">化妆师考试</div></div>
+<div class="tips">微信扫码 · 随时随地考试</div>
 <div class="cfg">
 <div class="cfgrow"><span class="lb">单选题</span><input class="in" id="iS" value="5"> 道</div>
 <div class="cfgrow"><span class="lb">多选题</span><input class="in" id="iM" value="2"> 道</div>
@@ -106,8 +113,6 @@ function esc(s){return s?s.replace(/&/g,"&amp;").replace(/</g,"&lt;"):"";}
 function sh(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}}
 function pick(a,n){var b=a.slice();sh(b);return b.slice(0,n);}
 function show(id){document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("on");});document.getElementById(id).classList.add("on");}
-
-// 渲染题目
 function render(){
   var q=quiz[cur];
   document.getElementById("pT").textContent=(cur+1)+"/"+total;
@@ -115,18 +120,13 @@ function render(){
   document.getElementById("btnPrev").style.display=cur>0?"block":"none";
   document.getElementById("btnNext").style.display=cur<total-1?"block":"none";
   document.getElementById("btnSub").style.display=cur===total-1?"block":"none";
-  
-  // 题目标签
   var typeHtml="";
   if(q.type==="single"){typeHtml='<span class="qtype single">单选题</span>';}
   else if(q.type==="multi"){typeHtml='<span class="qtype multi">多选题</span><div class="hint">可选择多个答案</div>';}
   else if(q.type==="judge"){typeHtml='<span class="qtype judge">判断题</span>';}
-  
   var h='<div class="qc">'+typeHtml+'<div class="qt">'+esc(q.question)+'</div>';
-  
   if(q.options&&q.options.length){
     for(var i=0;i<q.options.length;i++){
-      // 多选题：检查是否已选
       var isMulti=(q.type==="multi");
       var isSel=false;
       if(isMulti){
@@ -140,18 +140,15 @@ function render(){
       h+='<div class="opt'+sel+'" '+typeAttr+'>'+LC[i]+". "+esc(q.options[i])+"</div>";
     }
   }
-  
   h+="</div>";
   document.getElementById("qA").innerHTML=h;
-  
-  // 绑定事件
   var opts=document.querySelectorAll(".opt");
   for(var i=0;i<opts.length;i++){
+    opts[i].ontouchend=function(e){e.preventDefault();};
     opts[i].onclick=function(){
       var qtype=this.getAttribute("data-type");
       var idx=parseInt(this.getAttribute("data-idx"));
       if(qtype==="multi"){
-        // 多选题：切换选中状态
         if(!ans[cur])ans[cur]=[];
         var arr=ans[cur];
         var idx2=arr.indexOf(LC[idx]);
@@ -159,7 +156,6 @@ function render(){
         else{arr.push(LC[idx]);}
         ans[cur]=arr;
       }else{
-        // 单选/判断：直接赋值
         ans[cur]=LC[idx];
       }
       render();
@@ -167,26 +163,15 @@ function render(){
   }
   log("第"+(cur+1)+"题 | "+q.type);
 }
-
 function prev(){if(cur>0){cur--;render();}}
 function next(){if(cur<total-1){cur++;render();}else{submit();}}
-
 function submit(){
   var cr=0;
   for(var i=0;i<total;i++){
     var q=quiz[i],u=ans[i];
-    if(q.type==="single"||q.type==="judge"){
-      if(u===q.answer)cr++;
-    }else if(q.type==="multi"){
-      // 多选题：比较排序后的数组
-      if(u&&q.answer){
-        var ua=(u instanceof Array)?u.slice().sort().join(""):u.split("").sort().join("");
-        var qa=q.answer.split("").sort().join("");
-        if(ua===qa)cr++;
-      }
-    }else{
-      if(u&&u.trim()===q.answer.trim())cr++;
-    }
+    if(q.type==="single"||q.type==="judge"){if(u===q.answer)cr++;}
+    else if(q.type==="multi"){if(u&&q.answer){var ua=(u instanceof Array)?u.slice().sort().join(""):u.split("").sort().join("");var qa=q.answer.split("").sort().join("");if(ua===qa)cr++;}}
+    else{if(u&&u.trim()===q.answer.trim())cr++;}}
   }
   var pct=Math.round(cr/total*100);
   document.getElementById("rC").textContent=cr;
@@ -201,19 +186,13 @@ function submit(){
   document.getElementById("rT").textContent=ti;
   show("rScreen");
 }
-
 function showReview(){
   var h="";
   for(var i=0;i<total;i++){
     var q=quiz[i],u=ans[i],ok=false;
     if(q.type==="single"||q.type==="judge"){ok=u===q.answer;}
-    else if(q.type==="multi"){
-      if(u&&q.answer){
-        var ua=(u instanceof Array)?u.slice().sort().join(""):u.split("").sort().join("");
-        var qa=q.answer.split("").sort().join("");
-        ok=ua===qa;
-      }
-    }else{ok=u&&u.trim()===q.answer.trim();}
+    else if(q.type==="multi"){if(u&&q.answer){var ua=(u instanceof Array)?u.slice().sort().join(""):u.split("").sort().join("");var qa=q.answer.split("").sort().join("");ok=ua===qa;}}
+    else{ok=u&&u.trim()===q.answer.trim();}
     var cls=ok?"ri2r":"ri2w";
     var ua2=(u instanceof Array)?u.sort().join(""):(u||"未作答");
     var ra=q.answer||"";
@@ -225,7 +204,6 @@ function showReview(){
   document.getElementById("reviewList").innerHTML=h;
   show("vScreen");
 }
-
 document.getElementById("startBtn").onclick=function(){
   var ns=parseInt(document.getElementById("iS").value)||5;
   var nm=parseInt(document.getElementById("iM").value)||2;
